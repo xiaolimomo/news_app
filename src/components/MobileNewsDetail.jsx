@@ -1,15 +1,13 @@
-import React from 'react'
+import React,{Component} from 'react'
 import {BackTop} from 'antd';
 import axios from 'axios'
-
 import NewsComments from './news_comments';
-1
-export default class MobileNewsDetails extends React.Component{
-
+Component
+export default class MobileNewsDetails extends Component{
   state = {
     news: ''
   }
-
+//可以在这里面发送ajax请求
   componentDidMount () {
     const {uniquekey} = this.props.params
     const url = `http://newsapi.gugujiankong.com/Handler.ashx?action=getnewsitem&uniquekey=${uniquekey}`
@@ -17,7 +15,7 @@ export default class MobileNewsDetails extends React.Component{
       .then(response => {
         const news = response.data
         this.setState({news})
-        document.title = news.title + " - React News | React驱动的新闻平台";
+        document.title = news.title ;
       })
   }
 
