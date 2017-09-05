@@ -1,4 +1,4 @@
-import React from 'react'
+import React，{Component} from 'react'
 import {
   Tabs,
   Card,
@@ -7,17 +7,18 @@ import {Link} from 'react-router'
 import axios from 'axios'
 
 const TabPane = Tabs.TabPane
-/*
- 移动端 用户中心组件
- */
-export default class MobileUserCenter extends React.Component {
+
+export default class MobileUserCenter extends Component {
 
   state = {
-    userCollections: [], //收藏列表
-    userComments: [], //评论列表
+    //收藏列表
+    userCollections: [], 
+     //评论列表
+    userComments: [],
   }
 
   componentDidMount() {
+    //获取存放在localStorage中的userId
     const userId = localStorage.getItem('userId')
     let url = "http://newsapi.gugujiankong.com/Handler.ashx?action=getuc&userid=" + userId
     axios.get(url)
@@ -45,7 +46,7 @@ export default class MobileUserCenter extends React.Component {
           <p>{uc.Title}</p>
         </Card>
       ))
-      : '您还没有收藏任何的新闻，快去收藏一些新闻吧。'
+      : '，骚年，您还没有收藏任何的新闻。'
 
     const userCommentsList = userComments.length
       ? userComments.map((comment,index)=>(
