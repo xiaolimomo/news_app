@@ -4,9 +4,6 @@ import axios from 'axios'
 
 import NewsComments from './news_comments';
 
-/**
- * 移动端 新闻详情组件
- */
 export default class MobileNewsDetails extends React.Component{
 
   state = {
