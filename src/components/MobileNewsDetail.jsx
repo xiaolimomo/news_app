@@ -3,7 +3,7 @@ import {BackTop} from 'antd';
 import axios from 'axios'
 
 import NewsComments from './news_comments';
-
+1
 export default class MobileNewsDetails extends React.Component{
 
   state = {
